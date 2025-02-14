@@ -1,6 +1,37 @@
+#서버 포트
 server:
   port: 7070
 
+#로깅
 logging:
   level:
     org.springframework: info
+
+#다국어
+spring:
+  message:
+    basename: messages
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+#  security:
+#    user:
+#      name: username
+#      password: passw0rd
+
+#Actuator endpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
